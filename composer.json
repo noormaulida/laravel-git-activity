@@ -1,6 +1,6 @@
 {
     "name": "noormaulida/laravel-git-activity",
-    "description": "Simple library for getting git activities on Laravel Project",
+    "description": "Simple library for getting git activities in Laravel Project",
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/noormaulida/laravel-git-activity",
