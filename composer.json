@@ -55,7 +55,7 @@
         }
     },
     "scripts": {
-        "analyse": [
+        "analyze": [
             "composer check-syntax",
             "composer phpstan-analysis",
             "composer phpmd-analysis"
