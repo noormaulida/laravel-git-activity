@@ -1,0 +1,90 @@
+{
+    "name": "noormaulida/laravel-git-activity",
+    "description": "Simple library for getting git activities on Laravel Project",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/noormaulida/laravel-git-activity",
+    "keywords": [
+        "laravel",
+        "laravel-package",
+        "git",
+        "activity",
+        "gitlab",
+        "github"
+    ],
+    "support": {
+        "issues": "https://github.com/noormaulida/laravel-git-activity/issues",
+        "source": "https://github.com/noormaulida/laravel-git-activity"
+    },
+    "require": {
+        "php": "^8.1",
+        "illuminate/database": "^10.3.2",
+        "illuminate/support": "^10.3.2",
+        "nesbot/carbon": "^2.16"
+    },
+    "require-dev": {
+        "ekino/phpstan-banned-code": "^1.0",
+        "fakerphp/faker": "^1.9.1",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/larastan": "^2.0",
+        "orchestra/testbench": "^8.0",
+        "phpmd/phpmd": "^2.11",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-strict-rules": "^1.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "NoorMaulida\\GitActivity\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NoorMaulida\\GitActivity\\Tests\\": "tests/",
+            "Database\\Factories\\": "tests/Supports/Factories/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NoorMaulida\\GitActivity\\ServiceProvider"
+            ],
+            "aliases": {
+                "GitActivity": "NoorMaulida\\GitActivity\\Facade\\GitActivity"
+            }
+        }
+    },
+    "scripts": {
+        "analyse": [
+            "composer check-syntax",
+            "composer phpstan-analysis",
+            "composer phpmd-analysis"
+        ],
+        "check-syntax": [
+            "! find src -type f -name \"*.php\" -exec php -l {} \\; |  grep -v 'No syntax errors'",
+            "! find tests -type f -name \"*.php\" -exec php -l {} \\; |  grep -v 'No syntax errors'"
+        ],
+        "phpstan-analysis": [
+            "@php -d max_memory=-1 vendor/bin/phpstan analyse -c phpstan.neon --no-progress"
+        ],
+        "phpmd-analysis": [
+            "@php -d max_memory=-1 vendor/bin/phpmd src text codesize,controversial,design,naming,unusedcode,.phpmd.cleancode.xml"
+        ],
+        "cov-text": [
+            "phpdbg -dmemory_limit=-1 -qrr vendor/bin/phpunit --coverage-text"
+        ],
+        "cov-html": [
+            "phpdbg -dmemory_limit=-1 -qrr vendor/bin/phpunit --coverage-html coverage"
+        ],
+        "test": [
+            "vendor/bin/phpunit"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Noor Maulida",
+            "email": "noormaulida.dev@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
