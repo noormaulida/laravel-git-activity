@@ -47,7 +47,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "NoorMaulida\\GitActivity\\ServiceProvider"
+                "NoorMaulida\\GitActivity\\GitActivityServiceProvider"
             ],
             "aliases": {
                 "GitActivity": "NoorMaulida\\GitActivity\\Facade\\GitActivity"
@@ -55,7 +55,7 @@
         }
     },
     "scripts": {
-        "analyze": [
+        "analyse-all": [
             "composer check-syntax",
             "composer phpstan-analysis",
             "composer phpmd-analysis"
